@@ -1,0 +1,8 @@
+const App = () => {
+  return (
+    <div>
+      <button style={{backgroundColor: '#ff0000', color: 'green', borderRadius: '10px'}}>Clique Aqui</button>
+    </div>
+  )
+}
+export default App;

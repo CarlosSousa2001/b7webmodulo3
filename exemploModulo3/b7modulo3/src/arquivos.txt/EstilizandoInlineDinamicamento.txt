@@ -1,0 +1,58 @@
+// botoao dinamico
+
+import { useState } from "react";
+
+const App = () => {
+
+  const [click, setClick] = useState('#FF000');
+  const [mudarpadding, setPadding] = useState(0);
+
+  const Trocar = () =>{
+    if(click === '#FF000'){
+      setClick('green')
+      setPadding(20)
+    } else {
+      setClick('#FF000')
+      setPadding(0)
+    }
+  }
+  return (
+    <div>
+      <button 
+      onClick={Trocar}
+      style={{backgroundColor: click, color: 'white', 
+      borderRadius: '10px', 
+      padding: mudarpadding}}>Clique Aqui</button>
+    </div>
+  )
+}
+export default App;
+
+
+
+--------------------------------------------------------------
+
+
+
+import { useState } from "react";
+
+const App = () => {
+
+  const [click, setClick] = useState(false);
+  const [mudarpadding, setPadding] = useState(0);
+
+  const Trocar = () =>{
+    setClick(true)
+    setPadding(20)
+  }
+  return (
+    <div>
+      <button 
+      onClick={Trocar}
+      style={{backgroundColor: click ? 'Red' : 'green', color: 'green', 
+      borderRadius: '10px', 
+      padding: mudarpadding}}>Clique Aqui</button>
+    </div>
+  )
+}
+export default App;

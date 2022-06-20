@@ -1,0 +1,22 @@
+import React, { Component } from 'react'
+import styled from 'styled-components'
+
+const AreaCarrinho =styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px solid red;
+    width: 800px;
+    height: 400px;
+`
+
+
+export default class Carrinho extends Component {
+  render() {
+    return (
+    <AreaCarrinho>
+        <h1>Carrinho</h1>
+    </AreaCarrinho>
+    )
+  }
+}
