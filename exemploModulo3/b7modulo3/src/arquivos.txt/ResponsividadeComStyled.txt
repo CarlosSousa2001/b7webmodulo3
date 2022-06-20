@@ -1,0 +1,38 @@
+import * as C from './componenteStyled/AppStyled'
+
+const App = () => {
+
+  return (
+    <div>
+    <C.Container colorFundo="green">
+      <span>texto do componente</span>
+      <C.botao bg="red">Botao grande</C.botao>
+      <C.botao bg="yellow" small>botao pequeno</C.botao>
+    </C.Container>
+    </div>
+  )
+}
+export default App;
+
+------------------------------
+
+import styled from 'styled-components'
+
+export const Container = styled.div`
+display: flex;
+margin: 0 auto;
+width: 600px;
+background-color: ${(props)=> props.colorFundo};
+color: white;
+padding: 20px;
+span{ 
+    color: aqua;
+}
+@media (max-width: 500px) {
+    background-color: blue;
+    flex-direction: column;
+}
+`
+export const botao = styled.button`
+font-size: ${(props) => props.small ? '15px' : '30px' };
+background-color: ${(props) => props.bg};

@@ -1,0 +1,48 @@
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import Cards from './componente/Cards'
+import Carrinho from './componente/Carrinho'
+
+const Container = styled.div`
+height: 500px;
+background-color: #ccc;
+text-align: center;
+h1{
+  margin: 0;
+}
+`
+
+// primeiro passo, Criar os estados dos itens
+// depois passar o o state para ALguma props no meu return
+// a props deve ser passada para outro componente.
+export default class App extends Component {
+  state = {
+    ArrayProdutos: [
+    {
+      id: 1,
+      Nome: "item1",
+      Preco: 200
+    },
+    {
+      id: 2,
+      Nome: "item2",
+      Preco: 300
+    },
+    {
+      id: 3,
+      Nome: "item3",
+      Preco: 400
+    }
+  ],
+
+  }
+  render() {
+    return (
+    <Container>
+      <h1>Treino add ao carrinho</h1>
+      <Cards  Produtos={this.state.ArrayProdutos}/>
+      <Carrinho/>
+    </Container>
+    )
+  }
+}

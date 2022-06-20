@@ -1,0 +1,38 @@
+import React, { Component } from 'react'
+import styled from 'styled-components'
+
+const AreaMid = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid black;
+  gap: 20px;
+`
+const AreaDoCartao = styled.div`
+text-align: center;
+width: 250px;
+height: 200px;
+border: 1px solid black;
+`
+//  <button onClick={()=> this.props.ValoresButton(item.id)}>Add ao carrinho</button> isso é para não dar loop
+// onclick recebe a props Vloresbutton, e essa valoresButton recebe A funçao clicar feita na app.js
+//
+
+export default class Cards extends Component {
+  render() {
+    const ArrayMostrar = this.props.Produto.map((item) => {
+      return <AreaDoCartao>
+                <p>{item.Nome} R${item.Preco}</p>
+                <button onClick={()=> this.props.ValoresButton(item.id)}>Add ao carrinho</button>
+             </AreaDoCartao> 
+    })
+    return (
+     <AreaMid>
+      {ArrayMostrar}
+     </AreaMid>
+    )
+  }
+}

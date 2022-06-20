@@ -1,0 +1,58 @@
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import Cards from './componente/Cards'
+import Carrinho from './componente/Carrinho'
+
+const Container  = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: #999;
+height: 800px;
+`
+
+export default class App extends Component {
+  // funçao clicar passada pra props valoresbutton
+  // filtra  e recebe um id e comprar com intem.id
+  //linha 23 a 28 eu clono o carrinho q começa vazio, o cloneCarrinho recee o push novoProduto e depois Carrinho passa a ter Clone Carrinho
+  Clicar = (id) => {
+    const NovoProduto = this.state.ArrayProdutos.filter((item) =>{
+      return item.id === id
+    })
+    const CloneCarrinho = [...this.state.Carrinho]
+    CloneCarrinho.push(NovoProduto[0])
+    this.setState({
+      Carrinho: CloneCarrinho
+    })
+  }
+  state = {
+    ArrayProdutos: [
+    {
+      id: 1,
+      Nome: "Produto 1",
+      Preco: 200
+    },
+    {
+      id: 2,
+      Nome: "Produto 2",
+      Preco: 300
+    },
+    {
+      id: 3,
+      Nome: "Produto 3",
+      Preco: 400
+    },
+  ],
+  Carrinho: []
+  }
+  render() {
+    return (
+      <Container>
+        <h1>Treino ADD ao Carrinho</h1>
+        <Cards Produto={this.state.ArrayProdutos} ValoresButton={this.Clicar}/>
+        <Carrinho produtosCarrinho={this.state.Carrinho}/>
+      </Container>
+    )
+  }
+}
